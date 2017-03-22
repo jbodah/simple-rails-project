@@ -1,0 +1,15 @@
+FROM ruby:2.4
+
+RUN apt-get update && apt-get install -y node
+
+RUN mkdir /mnt/simple-rails-project
+WORKDIR /mnt/simple-rails-project
+
+ADD Gemfile* /mnt/simple-rails-project/
+RUN bundle install
+
+ADD . /mnt/simple-rails-project/
+
+EXPOSE 3000
+
+ENTRYPOINT rails s --binding=0.0.0.0
