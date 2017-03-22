@@ -12,4 +12,4 @@ ADD . /mnt/simple-rails-project/
 
 EXPOSE 3000
 
-ENTRYPOINT rails s --binding=0.0.0.0
+CMD rails s --binding=0.0.0.0
